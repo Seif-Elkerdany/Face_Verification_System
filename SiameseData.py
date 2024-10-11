@@ -46,9 +46,6 @@ class SiameseNetworkDataset(Dataset):
             img1 = self.transform(img1)
 
         return img0, img1, torch.from_numpy(np.array([int(img1_tuple[1] != img0_tuple[1])], dtype=np.float32))
-
-    def __len__(self):
-        return len(self.imageFolderDataset.imgs)
         
     def data_aug(img):
         """Method to generate new images with different brightness, quality
